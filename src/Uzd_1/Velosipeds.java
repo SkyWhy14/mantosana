@@ -3,42 +3,68 @@ package Uzd_1;
 import java.util.Random;
 
 public class Velosipeds {
-//Atributi
-	private int ritenaD,sedeklaPoz,kustiba;
-	private double atrumsMS,cena;
+	//atribūti
+	private int ritenaD, sedeklaPoz;
+	private double atrumsMS, cena;
 	private String razotajs;
 	
-	
-	//Konstruktors
-	public Velosipeds(int ritenaD, int sedeklaPoz, String razotajs, double cena) {
+	//kostruktors
+	public Velosipeds(int ritenaD, int sedeklaPoz,
+				double cena, String razotajs) {
 		this.ritenaD = ritenaD;
 		this.sedeklaPoz = sedeklaPoz;
-		this.razotajs = razotajs;
+		atrumsMS = kustiba();
 		this.cena = cena;
-	     atrumsMS = Kustiba();
-		
+		this.razotajs = razotajs;
 	}
+
+	//metodes
 	public int noteiktRitenaD() {
 		return ritenaD;
 	}
+	
 	public int noteiktSedeklaPoz() {
 		return sedeklaPoz;
 	}
-	public String noteiktRazotaju() {
+	
+	public String noteiktRaz() {
 		return razotajs;
 	}
+	
 	public double noteiktCenu() {
 		return cena;
 	}
-	public double noteiktatrumu() {
+	
+	public double kustiba() {
+		Random rand = new Random();
+		double celsM, laiksS;
+		celsM = rand.nextDouble()*(1000-1)+1;
+		laiksS = rand.nextDouble()*(60-10)+10;
+		return Math.round(celsM/laiksS);
+	}
+	public double noteiktAtr() {
 		return atrumsMS;
 	}
-	public double Kustiba() {
-		Random rand = new Random();
-		double celsM,laiksS;
-		celsM = rand.nextDouble()*(1000-7)+1;
-		
+	
+	public String izvadit() {
+		return "Riteņa ražotājs: "+noteiktRaz()+
+				"\nRiteņa cena: "+noteiktCenu()+
+				"\nRiteņa leilums collās: "+noteiktRitenaD()+
+				"\nIEstatītais sēdekļa garums: "+noteiktSedeklaPoz()+
+				"\nKustības ātrums: "+noteiktAtr()+"m/s";
 	}
 	
-	
+	public void iestatitSedeklaPoz(int pozicija) {
+		sedeklaPoz = pozicija;
+	}
+	public void mities(int minienuSk) {
+		atrumsMS += noteiktAtr() + (0.15 * minienuSk);
+	}
+	public void bremzet(int berze) {
+		if(noteiktAtr() > 0) {
+			atrumsMS -= (noteiktAtr() *0.55)*berze;
+			if(atrumsMS < 0)
+				atrumsMS = 0;
+		}
+	}
 }
