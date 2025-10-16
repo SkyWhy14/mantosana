@@ -34,7 +34,7 @@ public class Bernuritenis extends Velosipeds{
 	public void zvanitZvaninu() throws MalformedURLException,
 		UnsupportedAudioFileException,IOException, LineUnavailableException {
 			if(zvanins) {
-				File f = new File(".//audio//"+"ringing.wav");
+				File f = new File(".//audio//"+"ring.wav");
 				AudioInputStream ais =AudioSystem.getAudioInputStream(f.toURI().toURL());
 				Clip c = AudioSystem.getClip();
 				c.open(ais);
