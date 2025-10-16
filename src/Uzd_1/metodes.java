@@ -77,7 +77,7 @@ static int iestatitSedekli() {
 static int iestatitAtrumu() {
 	JFrame jf = new JFrame();
 	JOptionPane jop = new JOptionPane();
-	JSlider js = bidjosla(jop, 36);
+	JSlider js = bidjosla(jop, 16);
 	jop.setMessage(new Object[] {"Kuru ātrumu iestatīt?", js});
 	jop.setMessageType(JOptionPane.QUESTION_MESSAGE);
 	jop.setOptionType(JOptionPane.OK_CANCEL_OPTION);
