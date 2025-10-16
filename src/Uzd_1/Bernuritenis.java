@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 public class Bernuritenis extends Velosipeds{
 	//atributi
 	private boolean paligriten,zvanins;
+	//konstruktors
 	public Bernuritenis(boolean paligriten, boolean zvanins, int ritenaD, int sedeklaPoz, String razotajs,
 			double cena) {
 		super(ritenaD, sedeklaPoz, cena, razotajs);
