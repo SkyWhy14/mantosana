@@ -66,12 +66,38 @@ public class RitenBraucejs {
 							JOptionPane.showMessageDialog(null, "Bērnu ritens veiksmigi pievienots","Jauns ritens",JOptionPane.INFORMATION_MESSAGE);
 						}
 						
-						
-						
+						break;
+						//ritenu noņemšana
+					case 1:
+						if(riteni.size()>0) {
+							int ritID = metodes.ritenaIzvele(riteni); 
+							JOptionPane.showMessageDialog(null, "Ritenis ir vieksmigi dzest!","Bridinajums",JOptionPane.INFORMATION_MESSAGE);
+							if(ritID != -1) {
+								riteni.remove(ritID);
+							}
+						}else {
+							JOptionPane.showMessageDialog(null, "Saraksts ir tukšs, nav ko noņemt","Brīdinājums",JOptionPane.WARNING_MESSAGE);
+							break;
+						}
+						break;
+					case 2:
+						if(riteni.size()>0) {
+							String ritSaraksts = "Izveidotie riteņi:\n";
+							for(int i=0; i<riteni.size(); i++) {
+								ritSaraksts += (i+1)+". "+
+									(((Velosipeds)riteni.get(i)).noteiktRaz())+" "+
+									(((Velosipeds)riteni.get(i)).noteiktCenu())+"EUR\n";
+							}
+							JOptionPane.showMessageDialog(null, ritSaraksts,"Riteņu saraksts",JOptionPane.INFORMATION_MESSAGE);
+						}else {
+							JOptionPane.showMessageDialog(null, "Saraksts ir tukšs, nav ko rādīt","Brīdinājums",JOptionPane.WARNING_MESSAGE);
+							break;
+						}
 						break;
 					case 5:
 						JOptionPane.showMessageDialog(null, "Programma apturēta","Beigas",JOptionPane.INFORMATION_MESSAGE);
 						break;
+						
 					}
 				}while(izvelesID!= 5);
 	}
