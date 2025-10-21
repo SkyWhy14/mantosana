@@ -2,7 +2,7 @@ package Uzd_1;
 
 import java.util.Random;
 
-public class Velosipeds {
+public class Velosipeds implements Comparable<Velosipeds>{
 	//atribūti
 	private int ritenaD, sedeklaPoz;
 	private double atrumsMS, cena;
@@ -31,7 +31,7 @@ public class Velosipeds {
 		return razotajs;
 	}
 	
-	public double noteiktCenu() {
+	public Double noteiktCenu() {
 		return cena;
 	}
 	
@@ -66,5 +66,10 @@ public class Velosipeds {
 			if(atrumsMS < 0)
 				atrumsMS = 0;
 		}
+	}
+	
+	@Override
+	public int compareTo(Velosipeds v) {
+		return this.noteiktCenu().compareTo(v.noteiktCenu());
 	}
 }
