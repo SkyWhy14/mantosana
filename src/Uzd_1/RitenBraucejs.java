@@ -196,9 +196,10 @@ public class Ritenbraucejs {
 								JOptionPane.INFORMATION_MESSAGE);
 						break;
 					case 3:
-						((Velosipeds)riteni.get(kurs)).mities(kurs);
+						double minSk = Metodes.skaitlaParbaude("Cik reizes tu mīsies", 1.0, 10.0, "3.0");
+						((Velosipeds)riteni.get(kurs)).mities((int)minSk);
 						JOptionPane.showMessageDialog(null,
-								"Tu sāc mīties ātrāk", "Paziņojums", 
+								"Tu sāc mīties ātrāk!", "Paziņojums", 
 								JOptionPane.INFORMATION_MESSAGE);
 						break;
 					case 4:
@@ -219,19 +220,56 @@ public class Ritenbraucejs {
 									JOptionPane.INFORMATION_MESSAGE);
 						}	else 
 							break;
-						
-						
+
 						((Velosipeds)riteni.get(kurs)).bremzet(berze);
 						
 						
 						
 						break;
 					case 5:
+						if(riteni.get(kurs) instanceof KalnuRitenis) {
+							JOptionPane.showMessageDialog(null,
+									"Iestatītais ātrums: "+
+							((KalnuRitenis)riteni.get(kurs)).noteiktIestatAtr(),
+							"Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+							}else {
+								JOptionPane.showMessageDialog(null, 
+										"Šim riteņa veidam nav iestatītais ātrums", "Paziņojums",
+										JOptionPane.ERROR_MESSAGE);
+							}
 						
 						break;
 					case 6:
+						if(riteni.get(kurs) instanceof KalnuRitenis) {
+							int atr = Metodes.iestatitAtrumu();
+							((KalnuRitenis)riteni.get(kurs)).parslegtAtr(atr);
+							JOptionPane.showMessageDialog(null,
+									"Atrums veiksmīgi pārslēgts", "Paziņojums",
+									JOptionPane.INFORMATION_MESSAGE);
+							}else {
+								JOptionPane.showMessageDialog(null, 
+										"Šim riteņa veidam nav iestatītais ātrums", "Paziņojums",
+										JOptionPane.ERROR_MESSAGE);
+							}
 						break;
 					case 7:
+						if(riteni.get(kurs) instanceof BernuRitenis) {
+							izvele = (String)JOptionPane.showInputDialog(null, 
+									"Vai piespridzināt vai noņemt palīgriteņus?",
+									"Izvēlne", JOptionPane.QUESTION_MESSAGE, null
+									,atbilde, atbilde[0]);
+							if(izvele == null) break;
+							
+							boolean darb;
+							if(izvele == "Jā") darb = true;
+							else darb = false;
+							
+							((BernuRitenis)riteni.get(kurs)).darbArPaligrit(darb);
+							}else {
+								JOptionPane.showMessageDialog(null, 
+										"Šim riteņa veidam nav palīgriteņi", "Paziņojums",
+										JOptionPane.ERROR_MESSAGE);
+							}
 						break;
 					case 8:
 						if(riteni.get(kurs) instanceof BernuRitenis) {
