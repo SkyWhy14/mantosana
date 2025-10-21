@@ -85,8 +85,8 @@ public class RitenBraucejs {
 							String ritSaraksts = "Izveidotie riteņi:\n";
 							for(int i=0; i<riteni.size(); i++) {
 								ritSaraksts += (i+1)+". "+
-									(((Velosipeds)riteni.get(i)).noteiktRaz())+" "+
-									(((Velosipeds)riteni.get(i)).noteiktCenu())+"EUR\n";
+									
+									(((Velosipeds)riteni.get(i)).izvadit())+"\n\n";
 							}
 							JOptionPane.showMessageDialog(null, ritSaraksts,"Riteņu saraksts",JOptionPane.INFORMATION_MESSAGE);
 						}else {
@@ -94,6 +94,8 @@ public class RitenBraucejs {
 							break;
 						}
 						break;
+					case 3:
+						
 					case 5:
 						JOptionPane.showMessageDialog(null, "Programma apturēta","Beigas",JOptionPane.INFORMATION_MESSAGE);
 						break;
