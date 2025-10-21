@@ -88,7 +88,8 @@ public class RitenBraucejs {
 									
 									(((Velosipeds)riteni.get(i)).izvadit())+"\n\n";
 							}
-							JOptionPane.showMessageDialog(null, ritSaraksts,"Riteņu saraksts",JOptionPane.INFORMATION_MESSAGE);
+							//ar scrollview
+							JOptionPane.showMessageDialog(null, new javax.swing.JScrollPane(new javax.swing.JTextArea(ritSaraksts)),"Riteņu saraksts",JOptionPane.INFORMATION_MESSAGE);
 						}else {
 							JOptionPane.showMessageDialog(null, "Saraksts ir tukšs, nav ko rādīt","Brīdinājums",JOptionPane.WARNING_MESSAGE);
 							break;
